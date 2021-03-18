@@ -3,9 +3,9 @@ import React,{cloneElement, useRef,useState} from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Animated,Dimensions } from 'react-native';
 import { withOrientation } from 'react-navigation';
 import SlidingUpPanel from 'rn-sliding-up-panel'
-import Payment from './Components/Payment';
 
-export default function App() {
+
+const Payment = () =>{
   const {width,height} = Dimensions.get('window')
   const ModalRef = useRef(null);
   const [dragRange,setDragRange] = useState({
@@ -14,10 +14,9 @@ export default function App() {
   })
   const _draggedValue = new Animated.Value(30)
   const printHello = ()=>{console.log("hellott")}
-  return (
-    <View style={styles.container}>
-      <Payment></Payment>
-      {/* <View style={{
+    return(
+      <View>
+      <View style={{
         flex:1,
         borderStyle:'solid',
         borderColor:"#000",
@@ -67,8 +66,6 @@ export default function App() {
         // alignContent:'flex-start',
         alignItems: 'center',
         // justifyContent: 'flex-start',
-
-
       }}
       onBottomReached={printHello}
       height={height/2}
@@ -85,24 +82,25 @@ export default function App() {
           <Text style={{color:'#000000',alignSelf:'center',padding:10}}>payent information</Text>
       </SlidingUpPanel>
       </View>
-     */}
-    </View>
-
-  );
+      </View>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
 
-    paddingTop:50,
-    paddingHorizontal:14,
-
-
+//     paddingTop:50,
+//     paddingHorizontal:14,
 
 
-  },
+
+
+//   },
 });
+
+
+export default Payment;
